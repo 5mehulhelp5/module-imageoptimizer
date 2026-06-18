@@ -4,6 +4,13 @@ All notable changes to this extension are documented here. The format
 is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.0.5]
+
+### Changed
+- Rewrote README to match gold template: updated section order, Quick Answer
+  block, Configuration table sourced from system.xml, canonical URL updated
+  to product page, em-dashes removed, filler phrases removed.
+
 ## [1.2.0] — Current release
 
 ### Added
