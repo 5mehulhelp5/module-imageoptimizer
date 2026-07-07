@@ -1,7 +1,4 @@
 <?php
-/**
- * Copyright © Panth Infotech. All rights reserved.
- */
 declare(strict_types=1);
 
 namespace Panth\ImageOptimizer\Model\Config\Source;
@@ -10,11 +7,6 @@ use Magento\Framework\Data\OptionSourceInterface;
 
 class PlaceholderType implements OptionSourceInterface
 {
-    /**
-     * Get options as array
-     *
-     * @return array
-     */
     public function toOptionArray(): array
     {
         return [
@@ -26,11 +18,6 @@ class PlaceholderType implements OptionSourceInterface
         ];
     }
 
-    /**
-     * Get options as key-value array
-     *
-     * @return array
-     */
     public function toArray(): array
     {
         return [

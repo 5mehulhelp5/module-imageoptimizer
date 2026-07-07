@@ -1,7 +1,4 @@
 <?php
-/**
- * Copyright © Panth Infotech. All rights reserved.
- */
 declare(strict_types=1);
 
 namespace Panth\ImageOptimizer\Test\Unit\Helper;
@@ -14,19 +11,10 @@ use PHPUnit\Framework\MockObject\MockObject;
 
 class DataTest extends TestCase
 {
-    /**
-     * @var Data
-     */
     private Data $helper;
 
-    /**
-     * @var ScopeConfigInterface|MockObject
-     */
     private $scopeConfigMock;
 
-    /**
-     * Set up test fixtures
-     */
     protected function setUp(): void
     {
         $this->scopeConfigMock = $this->getMockForAbstractClass(ScopeConfigInterface::class);
@@ -36,15 +24,6 @@ class DataTest extends TestCase
         );
     }
 
-    /**
-     * Test isWebpEnabled returns true when both module and WebP detection are enabled
-     *
-     * @dataProvider webpEnabledDataProvider
-     * @param bool $moduleEnabled
-     * @param bool $webpEnabled
-     * @param bool $expected
-     * @return void
-     */
     public function testIsWebpEnabled(bool $moduleEnabled, bool $webpEnabled, bool $expected): void
     {
         $this->scopeConfigMock->method('getValue')
@@ -73,13 +52,6 @@ class DataTest extends TestCase
         $this->assertSame($expected, $result);
     }
 
-    /**
-     * Test getLoadingStrategy returns configured strategy
-     *
-     * @dataProvider loadingStrategyDataProvider
-     * @param string $strategy
-     * @return void
-     */
     public function testGetLoadingStrategy(string $strategy): void
     {
         $this->scopeConfigMock->method('getValue')
@@ -94,11 +66,6 @@ class DataTest extends TestCase
         $this->assertSame($strategy, $result);
     }
 
-    /**
-     * Test getLoadingStrategy returns default strategy when not configured
-     *
-     * @return void
-     */
     public function testGetLoadingStrategyDefaultValue(): void
     {
         $this->scopeConfigMock->method('getValue')
@@ -113,11 +80,6 @@ class DataTest extends TestCase
         $this->assertSame('native', $result);
     }
 
-    /**
-     * Test isEnabled respects store ID parameter
-     *
-     * @return void
-     */
     public function testIsEnabledWithStoreId(): void
     {
         $storeId = 2;
@@ -141,11 +103,6 @@ class DataTest extends TestCase
         $this->assertTrue($result);
     }
 
-    /**
-     * Test getThreshold returns configured threshold value
-     *
-     * @return void
-     */
     public function testGetThreshold(): void
     {
         $threshold = 500;
@@ -161,11 +118,6 @@ class DataTest extends TestCase
         $this->assertSame($threshold, $result);
     }
 
-    /**
-     * Test getThreshold returns default value when not configured
-     *
-     * @return void
-     */
     public function testGetThresholdDefault(): void
     {
         $this->scopeConfigMock->method('getValue')
@@ -180,13 +132,6 @@ class DataTest extends TestCase
         $this->assertSame(300, $result);
     }
 
-    /**
-     * Test getPlaceholderType returns configured placeholder type
-     *
-     * @dataProvider placeholderTypeDataProvider
-     * @param string $type
-     * @return void
-     */
     public function testGetPlaceholderType(string $type): void
     {
         $this->scopeConfigMock->method('getValue')
@@ -201,11 +146,6 @@ class DataTest extends TestCase
         $this->assertSame($type, $result);
     }
 
-    /**
-     * Test getPlaceholderType returns default value when not configured
-     *
-     * @return void
-     */
     public function testGetPlaceholderTypeDefault(): void
     {
         $this->scopeConfigMock->method('getValue')
@@ -220,11 +160,6 @@ class DataTest extends TestCase
         $this->assertSame('blur', $result);
     }
 
-    /**
-     * Test isFallbackEnabled returns boolean
-     *
-     * @return void
-     */
     public function testIsFallbackEnabled(): void
     {
         $this->scopeConfigMock->method('getValue')
@@ -239,11 +174,6 @@ class DataTest extends TestCase
         $this->assertTrue($result);
     }
 
-    /**
-     * Test getPreloadCount returns configured value
-     *
-     * @return void
-     */
     public function testGetPreloadCount(): void
     {
         $this->scopeConfigMock->method('getValue')
@@ -258,11 +188,6 @@ class DataTest extends TestCase
         $this->assertSame(3, $result);
     }
 
-    /**
-     * Test getPreloadCount returns default when not configured
-     *
-     * @return void
-     */
     public function testGetPreloadCountDefault(): void
     {
         $this->scopeConfigMock->method('getValue')
@@ -277,11 +202,6 @@ class DataTest extends TestCase
         $this->assertSame(2, $result);
     }
 
-    /**
-     * Test getExcludeCount returns configured value
-     *
-     * @return void
-     */
     public function testGetExcludeCount(): void
     {
         $this->scopeConfigMock->method('getValue')
@@ -296,11 +216,6 @@ class DataTest extends TestCase
         $this->assertSame(5, $result);
     }
 
-    /**
-     * Test getExcludeCount returns default when not configured
-     *
-     * @return void
-     */
     public function testGetExcludeCountDefault(): void
     {
         $this->scopeConfigMock->method('getValue')
@@ -315,11 +230,6 @@ class DataTest extends TestCase
         $this->assertSame(3, $result);
     }
 
-    /**
-     * Data provider for WebP enabled test cases
-     *
-     * @return array
-     */
     public static function webpEnabledDataProvider(): array
     {
         return [
@@ -330,11 +240,6 @@ class DataTest extends TestCase
         ];
     }
 
-    /**
-     * Data provider for loading strategy test cases
-     *
-     * @return array
-     */
     public static function loadingStrategyDataProvider(): array
     {
         return [
@@ -344,11 +249,6 @@ class DataTest extends TestCase
         ];
     }
 
-    /**
-     * Data provider for placeholder type test cases
-     *
-     * @return array
-     */
     public static function placeholderTypeDataProvider(): array
     {
         return [
